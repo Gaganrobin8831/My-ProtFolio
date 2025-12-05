@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* Performance optimizations */
+html, body {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base HTML (Default/Light Theme) */
+html {
+  /* Smooth transition for theme change */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+  /* SETTINGS FOR LIGHT MODE (DEFAULT) */
+  background-color: #ffffff; /* Pure White background */
+  color: #333333; /* Dark Grey text (Soft Black) */
+}
+
+/* Dark Theme Specific Styles */
+html.dark {
+  /* Tells the browser to use a dark theme for UI elements */
+  color-scheme: dark; 
+  
+  /* SETTINGS FOR DARK MODE */
+  background-color: #121212; /* Very Dark Grey/Black background */
+  color: #f0f0f0; /* Soft Off-White text */
+}
+
+/* * Optional: Also apply colors to the body 
+* to ensure full coverage, especially if you 
+* use padding/margins on the body element. 
+*/
+body {
+  margin: 0;
+  background-color: inherit;
+  color: inherit;
+}
+
+/* * Important: Links often need manual adjustment, 
+* otherwise they might default to blue/purple 
+* and be invisible on a dark background.
+*/
+a {
+  color: #007bff; /* Bright Blue for Light Mode */
+}
+
+html.dark a {
+  color: #8ab4f8; /* Lighter Blue for Dark Mode */
+}
