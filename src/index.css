@@ -14,7 +14,7 @@ html {
   
   /* SETTINGS FOR LIGHT MODE (DEFAULT) */
   background-color: #ffffff; /* Pure White background */
-  color: #333333; /* Dark Grey text (Soft Black) */
+  color:black; /* Dark Grey text (Soft Black) */
 }
 
 /* Dark Theme Specific Styles */
@@ -47,4 +47,7 @@ a {
 
 html.dark a {
   color: #8ab4f8; /* Lighter Blue for Dark Mode */
+}
+.tech-container {
+  perspective: 1000px;
 }

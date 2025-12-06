@@ -32,37 +32,35 @@ const Tech = () => {
     { name: "C++", icon: <SiCplusplus className="text-[70px] text-blue-500" /> },
   ];
 
-  useEffect(() => {
-    if (!containerRef.current) return;
+useEffect(() => {
+  if (!containerRef.current) return;
 
-    const container = containerRef.current;
-    const cards = container.querySelectorAll(".tech-item");
-    const rect = container.getBoundingClientRect();
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+  const cards = containerRef.current.querySelectorAll(".tech-item");
 
-    cards.forEach(card => {
-      const cardRect = card.getBoundingClientRect();
-      const offsetX = centerX - cardRect.width / 2 - card.offsetLeft;
-      const offsetY = centerY - cardRect.height / 2 - card.offsetTop;
-
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: container,
-          start: "top 80%",
-          toggleActions: "play none none none",
-          markers: true
-        },
-        x: offsetX,
-        y: offsetY,
-        scale: 0,
+  cards.forEach(card => {
+    gsap.fromTo(
+      card,
+      {
         opacity: 0,
-        duration: 1,
+        rotationY: 90,
+        transformOrigin: "left center",
+      },
+      {
+        opacity: 1,
+        rotationY: 0,
+        duration: 0.9,
         ease: "power3.out",
-        // stagger: 0.1
-      });
-    });
-  }, []);
+        scrollTrigger: {
+          trigger: card,
+          start: "top 90%",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
+  });
+}, []);
+
+
 
   return (
     <div ref={containerRef} className="tech-container w-full px-5 flex flex-wrap items-center justify-center gap-10 py-10">
