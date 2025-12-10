@@ -10,12 +10,14 @@ import {
   SiReact, SiExpress, SiMongodb, SiTailwindcss, 
   SiTypescript, SiC, SiCplusplus, SiGreensock 
 } from "react-icons/si";
+import { useSelector } from "react-redux";
+import type { RootState } from "../store/store";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Tech = () => {
   const containerRef = useRef(null);
-
+const theme = useSelector((state: RootState) => state.theme.theme);
   const techList = [
     { name: "React JS", icon: <FaReact className="text-[70px] text-blue-500" /> },
     { name: "React Native", icon: <SiReact className="text-[70px] text-blue-400" /> },
@@ -69,10 +71,10 @@ useEffect(() => {
           key={index}
           className="tech-item h-[200px] w-[220px] bg-white/6 backdrop-blur-sm shadow-xl rounded-2xl 
                      flex flex-col items-center justify-center gap-4
-                     hover:scale-105 hover:shadow-2xl transition-all duration-300"
+                     hover:scale-115 hover:shadow-4xl transition-all duration-300"
         >
           {item.icon}
-          <h2 className="text-lg font-semibold text-slate-100">{item.name}</h2>
+          <h2 className={`text-lg font-semibold ${theme == 'dark'? 'text-slate-50':'text-black'}`}>{item.name}</h2>
         </div>
       ))}
     </div>

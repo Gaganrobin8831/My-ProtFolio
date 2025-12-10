@@ -3,12 +3,13 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Hero from './pages/Hero'
 import { useEffect, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import type { RootState } from './store/store';
 import Nav from './components/Nav';
+import Footer from './components/Footer';
 
 function App() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const theme = useSelector((state: RootState) => state.theme.theme);
 
   // Memoize theme update to prevent unnecessary re-renders
@@ -45,6 +46,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Hero />} />
       </Routes>
+      <Footer/>
     </>
   )
 }

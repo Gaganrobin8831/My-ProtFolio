@@ -1,19 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import { TbFileCv } from "react-icons/tb";
 
 const Home = () => {
   const textRef = useRef(null);
   const imageRef = useRef(null);
   const containerRef = useRef(null);
 
-  // Typewriter text
   const fullText = "Gagandeep Singh";
   const [displayText, setDisplayText] = useState("");
 
-  // Use useGSAP hook for better performance and cleanup
   useGSAP(() => {
-    // GSAP load animation - sequential with proper stagger
     const tl = gsap.timeline();
 
     tl.from(textRef.current, {
@@ -30,13 +28,11 @@ const Home = () => {
           duration: 1,
           ease: "power3.out",
         },
-        "-=0.5" // Slightly overlap for smooth flow
+        "-=0.5"
       );
 
-    // Fix blur: force GPU & exact pixels
     gsap.set(imageRef.current, { force3D: true, z: 0.01, willChange: "transform" });
 
-    // Floating animation without blur - optimized
     gsap.to(imageRef.current, {
       y: -10,
       duration: 3,
@@ -44,11 +40,9 @@ const Home = () => {
       yoyo: true,
       ease: "power1.inOut",
       force3D: true,
-      
     });
   }, { scope: containerRef });
 
-  // Typewriter effect in separate useEffect to prevent re-renders
   useEffect(() => {
     let index = 0;
     let forward = true;
@@ -70,20 +64,24 @@ const Home = () => {
           forward = true;
         }
       }
-    }, forward ? 180 : 120); // slower typing, faster deleting
+    }, forward ? 180 : 120);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div ref={containerRef} className="-z-10 h-screen w-full flex items-center justify-evenly px-10">
+    <div 
+      ref={containerRef} 
+      // 👇 ADDED pt-24 (padding top) to push content down on mobile
+      // 👇 Added lg:pt-0 so it resets on desktop if your desktop nav is different
+      className="-z-10 min-h-screen w-full flex flex-col lg:flex-row items-center justify-evenly px-10 pt-24 lg:pt-0"
+    >
 
       {/* LEFT TEXT */}
-      <div ref={textRef} className="w-[40%]">
-        <h3 className="text-2xl font-bold">Welcome to My Portfolio</h3>
+      <div ref={textRef} className="lg:w-[40%]">
+        <h3 className="text-2xl font-bold mt-6 lg:mt-0">Welcome to My Portfolio</h3>
 
-        {/* Typewriter */}
-        <h1 className="text-[60px] font-bold leading-tight h-[75px]">
+        <h1 className="text-[60px] font-bold leading-tight mt-5 mb-19 lg:mt-0 lg:mb-0 h-[75px]">
           {displayText}
           <span className="border-r-4 border-black dark:border-white ml-1 animate-pulse"></span>
         </h1>
@@ -93,6 +91,15 @@ const Home = () => {
           I build scalable applications, simplify complex logic, and focus on
           writing clean, efficient, and maintainable code.
         </p>
+          
+        <a 
+          href="https://docs.google.com/document/d/1i0ITNm2uUktgQkpNN4Wx8-HCXeT4i5qV/edit?usp=sharing&ouid=107499930440168605413&rtpof=true&sd=true" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4  text-lg text-blue-600 hover:underline flex gap-3"
+        >
+        <TbFileCv className="text-[30px]"/> Open My CV
+        </a>
       </div>
 
       {/* RIGHT IMAGE */}
@@ -103,7 +110,9 @@ const Home = () => {
           flex items-center justify-center cursor-pointer 
           hover:scale-105
           will-change-transform
+          mt-10 lg:mt-0 
         "
+        // 👆 Added mt-10 lg:mt-0 to the image wrapper for better spacing on mobile between text and image
         style={{
           transform: "translateZ(0)",
           backfaceVisibility: "hidden",

@@ -32,7 +32,7 @@ const ThemeToggle = memo(() => {
         }}
       >
         {theme === "light" ? (
-          <FiMoon className="text-xl" />
+          <FiMoon className="text-xl text-white" />
         ) : (
           <FiSun className="text-xl text-yellow-300" />
         )}
