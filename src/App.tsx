@@ -7,6 +7,9 @@ import { useSelector } from 'react-redux';
 import type { RootState } from './store/store';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+import AboutMe from './pages/AboutMe';
+import Contact from './pages/Contact';
+import Services from './pages/Services';
 
 function App() {
   // const dispatch = useDispatch();
@@ -45,6 +48,9 @@ function App() {
       <Nav />
       <Routes>
         <Route path='/' element={<Hero />} />
+        <Route path='/about' element={<AboutMe />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/Services' element={<Services />} />
       </Routes>
       <Footer/>
     </>

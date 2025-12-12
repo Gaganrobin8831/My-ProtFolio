@@ -92,7 +92,7 @@ function Nav() {
                 key={item.name}
                 className="desktop-nav-item hover:border-b-2 border-current cursor-pointer transition-colors duration-300"
               >
-                <Link to={item.path}>{item.name}</Link>
+                <Link to={item.path} className="Link-Tag">{item.name}</Link>
               </li>
             ))}
           </ul>
@@ -126,7 +126,7 @@ function Nav() {
                 <Link
                   to={item.path}
                   onClick={() => setIsMenuOpen(false)} // Close menu when link is clicked
-                  className="w-full block" // Ensures the link covers the whole clickable area
+                  className="w-full block Link-Tag" // Ensures the link covers the whole clickable area
                 >
                   {item.name}
                 </Link>

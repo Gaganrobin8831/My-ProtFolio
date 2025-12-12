@@ -47,6 +47,7 @@ const Footer = () => {
   ];
 
   useGSAP(() => {
+    
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: footerRef.current,

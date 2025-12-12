@@ -48,6 +48,14 @@ a {
 html.dark a {
   color: #8ab4f8; /* Lighter Blue for Dark Mode */
 }
+
+.Link-Tag{
+  color: #121212; /* Bright Blue for Light Mode */
+}
+
+html.dark .Link-Tag {
+  color: #ffffff; /* Lighter Blue for Dark Mode */
+}
 .tech-container {
   perspective: 1000px;
 }
