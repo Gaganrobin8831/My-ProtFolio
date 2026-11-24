@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { TbFileCv } from "react-icons/tb";
+
 
 const Home = () => {
   const textRef = useRef(null);
