@@ -93,15 +93,7 @@ const Home = () => {
           writing clean, efficient, and maintainable code.
         </p>
           
-        <a 
-          href="https://docs.google.com/document/d/1i0ITNm2uUktgQkpNN4Wx8-HCXeT4i5qV/edit?usp=sharing&ouid=107499930440168605413&rtpof=true&sd=true" 
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4  text-lg text-blue-600 hover:underline flex gap-3"
-        >
-        <TbFileCv className="text-[30px]"/> Open My CV
-        </a>
-      </div>
+        
 
       {/* RIGHT IMAGE */}
       <div
