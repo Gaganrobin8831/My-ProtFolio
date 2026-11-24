@@ -93,7 +93,7 @@ const Home = () => {
           writing clean, efficient, and maintainable code.
         </p>
           
-        
+        </div>
 
       {/* RIGHT IMAGE */}
       <div
